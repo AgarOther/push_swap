@@ -2,9 +2,9 @@
 
 CC			= cc
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
-LIBFT		= @make bonus -C ./libft
+LIBFT		= @make -C ./libft
 
 LIB			= libft/libft.a
 
@@ -16,7 +16,12 @@ NAME		= push_swap
 
 SRCS		= 	srcs/push_swap.c \
 				srcs/parsing.c \
-				srcs/parsing_utils.c
+				srcs/parsing_utils.c \
+				srcs/temp_helper.c \
+				srcs/minimal_checks.c \
+				srcs/push.c \
+				srcs/rotate.c \
+				srcs/reverse_rotate.c
 
 OBJ_FOLDER	= objs
 
@@ -26,7 +31,12 @@ INCLUDES	= includes
 
 OBJS		= 	$(OBJ_FOLDER)/push_swap.o \
 				$(OBJ_FOLDER)/parsing.o \
-				$(OBJ_FOLDER)/parsing_utils.o
+				$(OBJ_FOLDER)/parsing_utils.o \
+				$(OBJ_FOLDER)/temp_helper.o \
+				$(OBJ_FOLDER)/minimal_checks.o \
+				$(OBJ_FOLDER)/push.o \
+				$(OBJ_FOLDER)/rotate.o \
+				$(OBJ_FOLDER)/reverse_rotate.o
 
 # Custom Makefile Flags
 

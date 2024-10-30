@@ -6,46 +6,38 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/29 16:28:18 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:28:02 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid(int argc, char **argv)
+int	can_parse(int argc, char **argv)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
-				&& argv[i][j] != '-')
-				return (0);
-			j++;
-		}
-		i++;
-	}
+	if (argc < 2)
+		return (print_error());
+	if (!is_valid(argc, argv))
+		return (print_error());
+	else if (has_duplicates(argc, argv, 1, 0))
+		return (print_error());
 	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	t_list	*stack;
+	t_list	*stack_a;
 
-	if (argc < 2)
+	if (!can_parse(argc, argv))
+		return (0);
+	stack_a = get_stack_a(argc - 1, argv);
+	if (!stack_a)
 		return (print_error());
-	if (!is_valid(argc, argv))
+	if (is_sorted(stack_a))
 	{
-		ft_putendl_fd("Error!", 1);
-		return (print_error());
+		ft_printf("\nStack is sorted!\n");
+		return (0);
 	}
-	stack = get_stack_a(argc - 1, argv);
-	if (!stack)
-		return (print_error());
-	free(stack);
+	ra(&stack_a, 0);
+	ft_printlst(stack_a);
+	ft_lstclear(&stack_a);
 }
