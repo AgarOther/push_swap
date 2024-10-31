@@ -14,7 +14,7 @@ NAME		= push_swap
 
 # Sources & Includes
 
-SRCS		= 	srcs/push_swap.c \
+SRCS		= 	srcs/main.c \
 				srcs/parsing.c \
 				srcs/parsing_utils.c \
 				srcs/temp_helper.c \
@@ -30,7 +30,7 @@ INCLUDES	= includes
 
 # Objects
 
-OBJS		= 	$(OBJ_FOLDER)/push_swap.o \
+OBJS		= 	$(OBJ_FOLDER)/main.o \
 				$(OBJ_FOLDER)/parsing.o \
 				$(OBJ_FOLDER)/parsing_utils.o \
 				$(OBJ_FOLDER)/temp_helper.o \

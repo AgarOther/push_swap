@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:20 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/30 16:20:59 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/31 21:43:38 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	count_numbers(char *str)
 	numbers = 0;
 	if (!has_digit(str))
 		return (0);
-	str = ft_strtrim(str, " ");
 	while (str[i])
 	{
 		if (is_spaced && str[i] != ' ')

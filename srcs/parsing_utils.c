@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/30 16:53:05 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/31 21:37:22 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ t_list	*get_stack_a(int argc, char **argv)
 		get_element(&stack, argv[i], 0, 0);
 		i++;
 	}
-	ft_printlst(stack);
-	ft_printf("Size %d\n", ft_lstsize(stack));
 	return (stack);
 }
 

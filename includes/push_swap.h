@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/31 09:45:44 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/31 21:49:03 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 // For testing purposes
 void	ft_printlst(t_list *lst);
+void	ft_printstacks(t_list *stack_a, t_list *stack_b);
 #endif
