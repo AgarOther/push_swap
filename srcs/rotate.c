@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:13:26 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/30 18:33:44 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/31 09:42:35 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ra(t_list **stack_a, int is_rr)
 
 void	rb(t_list **stack_b, int is_rr)
 {
-	ra(stack_b, is_rr);
+	ra(stack_b, 1);
 	if (!is_rr)
 		ft_putendl_fd("rb", 1);
 }

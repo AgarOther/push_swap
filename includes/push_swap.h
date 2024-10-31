@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/30 18:24:02 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/31 09:45:44 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int		is_valid(int argc, char **argv);
 int		is_sorted(t_list *stack);
 
 // Operations
-void	pa(t_list **stack_a, t_list **stack_b);
+void	sa(t_list **stack_a, int is_ss);
+void	sb(t_list **stack_b, int is_ss);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	pa(t_list **stack_a, t_list **stack_b, int is_pb);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	ra(t_list **stack_a, int is_rr);
 void	rb(t_list **stack_b, int is_rr);

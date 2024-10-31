@@ -20,6 +20,7 @@ SRCS		= 	srcs/push_swap.c \
 				srcs/temp_helper.c \
 				srcs/minimal_checks.c \
 				srcs/push.c \
+				srcs/swap.c \
 				srcs/rotate.c \
 				srcs/reverse_rotate.c
 
@@ -35,6 +36,7 @@ OBJS		= 	$(OBJ_FOLDER)/push_swap.o \
 				$(OBJ_FOLDER)/temp_helper.o \
 				$(OBJ_FOLDER)/minimal_checks.o \
 				$(OBJ_FOLDER)/push.o \
+				$(OBJ_FOLDER)/swap.o \
 				$(OBJ_FOLDER)/rotate.o \
 				$(OBJ_FOLDER)/reverse_rotate.o
 

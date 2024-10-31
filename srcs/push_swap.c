@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/30 18:28:02 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/10/31 09:40:24 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		ft_printf("\nStack is sorted!\n");
 		return (0);
 	}
-	ra(&stack_a, 0);
+	sa(&stack_a, 0);
 	ft_printlst(stack_a);
 	ft_lstclear(&stack_a);
 }
