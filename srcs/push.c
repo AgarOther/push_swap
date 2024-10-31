@@ -19,8 +19,8 @@ void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
 	tmp = *stack_a;
 	while (tmp->next->next)
 		tmp = tmp->next;
-	ft_lstlast(*stack_b)->next = (*stack_a)->next;
-	(*stack_a)->next = NULL;
+	ft_lstlast(*stack_b)->next = tmp->next;
+	tmp->next = NULL;
 	if (!is_pb)
 		ft_putendl_fd("pa", 1);
 }
