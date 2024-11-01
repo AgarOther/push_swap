@@ -6,15 +6,49 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:54:56 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 09:20:57 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:03:28 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	sort_3(t_list **stack_a)
+{
+	if ((*stack_a)->value < (*stack_a)->next->value)
+	{
+		if ((*stack_a)->value > (*stack_a)->next->next->value)
+			rra(stack_a, 0);
+		else
+		{
+			rra(stack_a, 0);
+			sa(stack_a, 0);
+		}
+		return ;
+	}
+	if ((*stack_a)->next->value > (*stack_a)->next->next->value)
+	{
+		ra(stack_a, 0);
+		sa(stack_a, 0);
+		return ;
+	}
+	else
+	{
+		if ((*stack_a)->value < (*stack_a)->next->next->value)
+			sa(stack_a, 0);
+		else
+			ra(stack_a, 0);
+	}
+}
+
+void	sort_2(t_list **stack_a)
+{
+	if ((*stack_a)->value > (*stack_a)->next->value)
+		sa(stack_a, 0);
+}
+
 int	is_sorted(t_list *stack)
 {
-	int	tmp;
+	int		tmp;
 
 	if (ft_lstsize(stack) == 1)
 		return (1);

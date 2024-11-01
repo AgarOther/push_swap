@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:20 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/31 21:43:38 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:22:29 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	has_duplicates(int argc, char **argv, int i, int j)
 		{
 			while (argv[i][j] == ' ')
 				j++;
-			tab[k] = ft_atoi(&argv[i][j]);
+			tab[k] = ft_atoi(&argv[i][j], 0);
 			if (duplicate_check(tab[k], tab, k))
 				return (1);
 			k++;

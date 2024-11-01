@@ -6,13 +6,13 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:18:55 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/08 18:10:24 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:22:08 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, int can_free)
 {
 	int	i;
 	int	res;
@@ -35,5 +35,7 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	res *= neg;
+	if (can_free)
+		free((char *)nptr);
 	return (res);
 }

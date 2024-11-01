@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/31 21:49:03 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:34:31 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int		print_error(void);
 int		has_space(char *str);
 int		has_digit(char *str);
 int		is_valid(int argc, char **argv);
+int		is_sorted(t_list *stack);
 
 // Resolution
-int		is_sorted(t_list *stack);
+void	sort_3(t_list **stack_a);
+void	sort_2(t_list **stack_a);
 
 // Operations
 void	sa(t_list **stack_a, int is_ss);

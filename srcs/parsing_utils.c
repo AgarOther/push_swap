@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/31 21:37:22 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:26:10 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ static void	get_element(t_list **stack, char *str, int i, int j)
 {
 	int		num;
 	t_list	*new;
+	char	*strnum;
 
 	while (str[i])
 	{
 		if (!has_space(&str[i]))
-			num = ft_atoi(&str[i]);
+			num = ft_atoi(&str[i], 0);
 		else
 		{
 			while (str[i] && str[i] == ' ')
@@ -48,7 +49,8 @@ static void	get_element(t_list **stack, char *str, int i, int j)
 			j = i;
 			while (str[j] && (ft_isdigit(str[j]) || str[j] == '-'))
 				j++;
-			num = ft_atoi(ft_substr(&str[i], 0, j));
+			strnum = ft_substr(&str[i], 0, j);
+			num = ft_atoi(strnum, 1);
 		}
 		new = ft_lstnew(num);
 		if (!stack)
@@ -61,14 +63,16 @@ static void	get_element(t_list **stack, char *str, int i, int j)
 
 t_list	*get_stack_a(int argc, char **argv)
 {
-	int		i;
 	t_list	*stack;
+	int		i;
 
-	i = 1;
 	stack = NULL;
+	i = 1;
 	while (i <= argc)
 	{
+		argv[i] = ft_strtrim(argv[i], " ");
 		get_element(&stack, argv[i], 0, 0);
+		free(argv[i]);
 		i++;
 	}
 	return (stack);

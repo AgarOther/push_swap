@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 09:58:34 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:05:29 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,22 @@ void	empty_but_3(t_list **stack_a, t_list **stack_b)
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+	//t_list	*stack_b;
+	int		size;
+	int		sorted;
 
 	if (!can_parse(argc, argv))
 		return (0);
 	stack_a = get_stack_a(argc - 1, argv);
+	//stack_b = NULL;
 	if (!stack_a)
 		return (print_error());
-	if (is_sorted(stack_a))
-	{
-		ft_printf("\nStack is sorted!\n");
-		return (0);
-	}
-	stack_b = NULL;
-	ft_printstacks(stack_a, stack_b);
-	empty_but_3(&stack_a, &stack_b);
-	ft_printstacks(stack_a, stack_b);
-	rrr(&stack_a, &stack_b);
-	ft_printstacks(stack_a, stack_b);
-
+	size = ft_lstsize(stack_a);
+	sorted = is_sorted(stack_a);
+	if (size == 2 && !sorted)
+		sort_2(&stack_a);
+	else if (size == 3 && !is_sorted(stack_a))
+		sort_3(&stack_a);
 	ft_lstclear(&stack_a);
-	ft_lstclear(&stack_b);
+	//ft_lstclear(&stack_b);
 }

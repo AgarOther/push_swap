@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:03:35 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 09:52:28 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:02:53 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	small_push(t_list **stack_a, t_list **stack_b, int size)
 {
 	t_list	*tmp;
-	
+
 	if (size == 0)
 	{
 		tmp = *stack_b;
