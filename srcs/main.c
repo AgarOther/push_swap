@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/31 22:08:42 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/01 09:58:34 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@ int	can_parse(int argc, char **argv)
 	else if (has_duplicates(argc, argv, 1, 0))
 		return (print_error());
 	return (1);
+}
+
+void	empty_but_3(t_list **stack_a, t_list **stack_b)
+{
+	int	size;
+
+	size = ft_lstsize(*stack_a);
+	while (size > 3)
+	{
+		pb(stack_a, stack_b);
+		size--;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -39,12 +51,12 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack_b = NULL;
-	pa(&stack_a, &stack_b, 0);
 	ft_printstacks(stack_a, stack_b);
-	pa(&stack_a, &stack_b, 0);
+	empty_but_3(&stack_a, &stack_b);
 	ft_printstacks(stack_a, stack_b);
-	sb(&stack_b, 0);
+	rrr(&stack_a, &stack_b);
 	ft_printstacks(stack_a, stack_b);
+
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 }
