@@ -18,7 +18,7 @@ SRCS		= 	srcs/main.c \
 				srcs/parsing.c \
 				srcs/parsing_utils.c \
 				srcs/temp_helper.c \
-				srcs/minimal_checks.c \
+				srcs/minimal_sort.c \
 				srcs/push.c \
 				srcs/swap.c \
 				srcs/rotate.c \
@@ -34,7 +34,7 @@ OBJS		= 	$(OBJ_FOLDER)/main.o \
 				$(OBJ_FOLDER)/parsing.o \
 				$(OBJ_FOLDER)/parsing_utils.o \
 				$(OBJ_FOLDER)/temp_helper.o \
-				$(OBJ_FOLDER)/minimal_checks.o \
+				$(OBJ_FOLDER)/minimal_sort.o \
 				$(OBJ_FOLDER)/push.o \
 				$(OBJ_FOLDER)/swap.o \
 				$(OBJ_FOLDER)/rotate.o \
