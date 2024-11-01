@@ -24,6 +24,7 @@ int		has_space(char *str);
 int		has_digit(char *str);
 int		is_valid(int argc, char **argv);
 int		is_sorted(t_list *stack);
+int     is_fully_sorted(t_list *stack, int size);
 
 // Resolution
 void	sort_3(t_list **stack_a);

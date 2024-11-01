@@ -14,8 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!new || !lst)
+	if (!new)
 		return ;
-	new->next = *lst;
+	if (lst)
+		new->next = *lst;
 	*lst = new;
 }

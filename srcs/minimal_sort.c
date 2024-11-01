@@ -61,3 +61,23 @@ int	is_sorted(t_list *stack)
 	}
 	return (1);
 }
+
+int	is_fully_sorted(t_list *stack, int size)
+{
+	int		tmp;
+	int		lst_size;
+
+	lst_size = ft_lstsize(stack);
+	if (lst_size == 1 && size == 1)
+		return (1);
+	else if (lst_size != size)
+		return (0);
+	while (stack->next)
+	{
+		tmp = stack->value;
+		stack = stack->next;
+		if (tmp > stack->value)
+			return (0);
+	}
+	return (1);
+}

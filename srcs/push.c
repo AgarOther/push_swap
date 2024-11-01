@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	small_push(t_list **stack_a, t_list **stack_b, int size)
+/*void	small_push(t_list **stack_a, t_list **stack_b, int size)
 {
 	t_list	*tmp;
 
@@ -56,6 +56,18 @@ void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
 			ft_lstlast(*stack_a)->next = tmp->next;
 		tmp->next = NULL;
 	}
+	if (!is_pb)
+		ft_putendl_fd("pa", 1);
+}*/
+
+void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
+{
+	t_list	*tmp;
+
+	tmp = *stack_b;
+	if (*stack_b)
+		*stack_b = (*stack_b)->next;
+	ft_lstadd_front(stack_a, tmp);
 	if (!is_pb)
 		ft_putendl_fd("pa", 1);
 }
