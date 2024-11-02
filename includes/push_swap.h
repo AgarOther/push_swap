@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 18:34:31 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:54:47 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 # include "../libft/libft.h"
 # include "../libft/get_next_line/get_next_line.h"
 # include "../libft/ft_printf/includes/ft_printf.h"
+# include <limits.h>
 
 // Parsing
 t_list	*get_stack_a(int argc, char **argv);
 int		has_duplicates(int argc, char **argv, int i, int j);
+int		has_overflow(char *str);
 int		print_error(void);
 int		has_space(char *str);
 int		has_digit(char *str);
 int		is_valid(int argc, char **argv);
+int		set_ranks(t_list **stack_a, int size);
 int		is_sorted(t_list *stack);
-int     is_fully_sorted(t_list *stack, int size);
 
 // Resolution
+void	empty_but_3(t_list **stack_a, t_list **stack_b);
 void	sort_3(t_list **stack_a);
 void	sort_2(t_list **stack_a);
+int		is_fully_sorted(t_list *stack, int size);
 
 // Operations
 void	sa(t_list **stack_a, int is_ss);
@@ -46,4 +50,5 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 // For testing purposes
 void	ft_printlst(t_list *lst);
 void	ft_printstacks(t_list *stack_a, t_list *stack_b);
+void	ft_printranks(t_list *lst);
 #endif

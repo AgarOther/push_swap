@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimal_checks.c                                   :+:      :+:    :+:   */
+/*   minimal_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:54:56 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 19:03:28 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:54:25 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	empty_but_3(t_list **stack_a, t_list **stack_b)
+{
+	int	size;
+
+	size = ft_lstsize(*stack_a);
+	while (size > 3)
+	{
+		pb(stack_a, stack_b);
+		size--;
+	}
+}
 
 void	sort_3(t_list **stack_a)
 {
@@ -66,7 +78,6 @@ int	is_fully_sorted(t_list *stack, int size)
 {
 	int		tmp;
 	int		lst_size;
-
 	lst_size = ft_lstsize(stack);
 	if (lst_size == 1 && size == 1)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:21:22 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 11:21:30 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:22:53 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 typedef struct s_list
 {
 	int				value;
+	int				rank;
 	struct s_list	*next;
 }					t_list;
 
 int		ft_atoi(const char *nptr, int can_free);
+size_t	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);

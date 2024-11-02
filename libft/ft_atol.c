@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 17:03:35 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 11:53:28 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/08 09:18:55 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/11/02 11:22:40 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
+size_t	ft_atol(const char *nptr)
 {
-	t_list	*tmp;
-	tmp = *stack_b;
-	if (*stack_b)
-		*stack_b = (*stack_b)->next;
-	ft_lstadd_front(stack_a, tmp);
-	if (!is_pb)
-		ft_putendl_fd("pa", 1);
-}
+	size_t	i;
+	size_t	res;
+	size_t	neg;
 
-void	pb(t_list **stack_a, t_list **stack_b)
-{
-	pa(stack_b, stack_a, 1);
-	ft_putendl_fd("pb", 1);
+	i = 0;
+	res = 0;
+	neg = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			neg = -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = res * 10 + nptr[i] - '0';
+		i++;
+	}
+	res *= neg;
+	return (res);
 }

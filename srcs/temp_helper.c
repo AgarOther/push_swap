@@ -6,11 +6,20 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:40:28 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/01 09:55:16 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/02 10:55:07 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_printranks(t_list *lst)
+{
+	while (lst)
+	{
+		ft_printf("Number: %d | Rank: %d\n", lst->value, lst->rank);
+		lst = lst->next;
+	}
+}
 
 void	ft_printlst(t_list *lst)
 {
