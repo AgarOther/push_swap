@@ -1,0 +1,7 @@
+checker_linux
+visualizer
+*.o
+*/*.o
+objs/
+push_swap
+libft/libft.a

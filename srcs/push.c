@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:03:35 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 11:53:28 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/02 20:02:05 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
 {
 	t_list	*tmp;
+	
 	tmp = *stack_b;
 	if (*stack_b)
 		*stack_b = (*stack_b)->next;
+	else if (!(*stack_b)->next)
+		*stack_b = NULL;
 	ft_lstadd_front(stack_a, tmp);
 	if (!is_pb)
 		ft_putendl_fd("pa", 1);

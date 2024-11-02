@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 11:54:47 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/02 18:19:45 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	empty_but_3(t_list **stack_a, t_list **stack_b);
 void	sort_3(t_list **stack_a);
 void	sort_2(t_list **stack_a);
 int		is_fully_sorted(t_list *stack, int size);
+int		sort(t_list **stack_a, t_list **stack_b, int size);
 
 // Operations
 void	sa(t_list **stack_a, int is_ss);

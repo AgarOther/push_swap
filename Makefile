@@ -23,7 +23,8 @@ SRCS		= 	srcs/main.c \
 				srcs/push.c \
 				srcs/swap.c \
 				srcs/rotate.c \
-				srcs/reverse_rotate.c
+				srcs/reverse_rotate.c \
+				srcs/sorting.c
 
 OBJ_FOLDER	= objs
 
@@ -40,7 +41,8 @@ OBJS		= 	$(OBJ_FOLDER)/main.o \
 				$(OBJ_FOLDER)/push.o \
 				$(OBJ_FOLDER)/swap.o \
 				$(OBJ_FOLDER)/rotate.o \
-				$(OBJ_FOLDER)/reverse_rotate.o
+				$(OBJ_FOLDER)/reverse_rotate.o \
+				$(OBJ_FOLDER)/sorting.o
 
 # Custom Makefile Flags
 
