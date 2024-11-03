@@ -13,8 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
-# include "../libft/get_next_line/get_next_line.h"
-# include "../libft/ft_printf/includes/ft_printf.h"
 # include <limits.h>
 
 // Parsing
@@ -29,11 +27,12 @@ int		set_ranks(t_list **stack_a, int size);
 int		is_sorted(t_list *stack);
 
 // Resolution
-void	empty_but_3(t_list **stack_a, t_list **stack_b);
-void	sort_3(t_list **stack_a);
 void	sort_2(t_list **stack_a);
-int		is_fully_sorted(t_list *stack, int size);
+void	sort_3(t_list **stack_a);
+void	sort_5(t_list **stack_a, t_list **stack_b);
 int		sort(t_list **stack_a, t_list **stack_b, int size);
+int		elevator_sort(t_list **stack_a, t_list **stack_b, int size);
+int		is_fully_sorted(t_list *stack, int size);
 
 // Operations
 void	sa(t_list **stack_a, int is_ss);
@@ -47,9 +46,4 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a, int is_rr);
 void	rrb(t_list **stack_b, int is_rr);
 void	rrr(t_list **stack_a, t_list **stack_b);
-
-// For testing purposes
-void	ft_printlst(t_list *lst);
-void	ft_printstacks(t_list *stack_a, t_list *stack_b);
-void	ft_printranks(t_list *lst);
 #endif

@@ -12,58 +12,57 @@
 
 #include "push_swap.h"
 
-static void	reverse_search(t_list **stack_a, t_list **stack_b, t_list *bottom_b)
+static void	push_to_a(t_list **stack_a, t_list **stack_b, int size)
 {
-	if (!*stack_a || !*stack_b)
-		return ;
-	rrb(stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	if (bottom_b->rank - 1 == (*stack_a)->rank)
-		ra(stack_a, 0);
-}
+	int	i;
 
-static void	elevator_sort(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*bottom_a;
-	t_list	*bottom_b;
-
-	while (*stack_b)
+	i = 0;
+	while (i < size)
 	{
-		bottom_a = ft_lstlast(*stack_a);
-		bottom_b = ft_lstlast(*stack_b);
-		if ((*stack_a)->rank - 1 == (*stack_b)->rank)
+		if (*stack_b && ((*stack_b)->rank + 1 == (*stack_a)->rank
+				|| (*stack_b)->rank == (*stack_a)->rank - 1))
 			pa(stack_a, stack_b, 0);
-		else if (bottom_a->rank + 1 == (*stack_b)->rank)
-		{
-			pa(stack_a, stack_b, 0);
-			ra(stack_a, 0);
-		}
-		else if (bottom_b->rank + 1 == (*stack_a)->rank
-			|| bottom_b->rank - 1 == (*stack_a)->rank)
-			reverse_search(stack_a, stack_b, bottom_b);
-		else
-			rb(stack_b, 0);
+		else if (*stack_b)
+			pb(stack_a, stack_b);
+		i++;
 	}
 }
 
-static void	find_closest_rank(t_list **stack_a, t_list **stack_b)
+static void	sort_small(t_list **stack_a, t_list **stack_b, int size)
 {
-	int	size_b;
-	int	i;
+	if (size == 2)
+		sort_2(stack_a);
+	else if (size == 3)
+		sort_3(stack_a);
+	else if (size == 5)
+		sort_5(stack_a, stack_b);
+	else
+		elevator_sort(stack_a, stack_b, size);
+}
 
-	size_b = ft_lstsize(*stack_b);
-	i = 0;
-	while (i < size_b)
+static void	radix(t_list **stack_a, t_list **stack_b, int size)
+{
+	int	max_bits;
+	int	bits;
+	int	total_elements;
+
+	max_bits = 0;
+	while ((1 << max_bits) <= size)
+		max_bits++;
+	bits = 0;
+	while (bits < max_bits)
 	{
-		if ((*stack_b)->rank + 1 == (*stack_a)->rank
-			|| (*stack_b)->rank - 1 == (*stack_a)->rank)
+		total_elements = size;
+		while (total_elements--)
 		{
-			pa(stack_a, stack_b, 0);
-			sort_2(stack_a);
-			return ;
+			if (((*stack_a)->rank >> bits) & 1)
+				ra(stack_a, 0);
+			else
+				pb(stack_a, stack_b);
 		}
-		rb(stack_b, 0);
-		i++;
+		while (*stack_b)
+			pa(stack_a, stack_b, 0);
+		bits++;
 	}
 }
 
@@ -74,12 +73,12 @@ int	sort(t_list **stack_a, t_list **stack_b, int size)
 		ft_lstclear(stack_a);
 		return (0);
 	}
-	while (size > 1)
+	if (size <= 10)
+		sort_small(stack_a, stack_b, size);
+	else
 	{
-		pb(stack_a, stack_b);
-		size--;
+		push_to_a(stack_a, stack_b, size);
+		radix(stack_a, stack_b, size);
 	}
-	find_closest_rank(stack_a, stack_b);
-	elevator_sort(stack_a, stack_b);
 	return (1);
 }

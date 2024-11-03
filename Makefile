@@ -18,13 +18,13 @@ SRCS		= 	srcs/main.c \
 				srcs/parsing.c \
 				srcs/parsing_utils.c \
 				srcs/parsing_rank.c \
-				srcs/temp_helper.c \
 				srcs/minimal_sort.c \
 				srcs/push.c \
 				srcs/swap.c \
 				srcs/rotate.c \
 				srcs/reverse_rotate.c \
-				srcs/sorting.c
+				srcs/sorting.c \
+				srcs/elevator_sorting.c
 
 OBJ_FOLDER	= objs
 
@@ -36,13 +36,13 @@ OBJS		= 	$(OBJ_FOLDER)/main.o \
 				$(OBJ_FOLDER)/parsing.o \
 				$(OBJ_FOLDER)/parsing_utils.o \
 				$(OBJ_FOLDER)/parsing_rank.o \
-				$(OBJ_FOLDER)/temp_helper.o \
 				$(OBJ_FOLDER)/minimal_sort.o \
 				$(OBJ_FOLDER)/push.o \
 				$(OBJ_FOLDER)/swap.o \
 				$(OBJ_FOLDER)/rotate.o \
 				$(OBJ_FOLDER)/reverse_rotate.o \
-				$(OBJ_FOLDER)/sorting.o
+				$(OBJ_FOLDER)/sorting.o \
+				$(OBJ_FOLDER)/elevator_sorting.o
 
 # Custom Makefile Flags
 

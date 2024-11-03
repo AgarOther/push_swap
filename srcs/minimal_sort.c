@@ -12,16 +12,11 @@
 
 #include "push_swap.h"
 
-void	empty_but_3(t_list **stack_a, t_list **stack_b)
+void	sort_5(t_list **stack_a, t_list **stack_b)
 {
-	int	size;
-
-	size = ft_lstsize(*stack_a);
-	while (size > 3)
-	{
-		pb(stack_a, stack_b);
-		size--;
-	}
+	(void) stack_a;
+	(void) stack_b;
+	// Last stretch before being done, will do that at 42.
 }
 
 void	sort_3(t_list **stack_a)
