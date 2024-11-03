@@ -64,7 +64,7 @@ int	get_rank(int value, int *tab, int size)
 	while (i < size)
 	{
 		if (value == tab[i])
-			return (i + 1);
+			return (i);
 		i++;
 	}
 	return (-1);
