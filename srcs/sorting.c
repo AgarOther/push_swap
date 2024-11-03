@@ -12,37 +12,52 @@
 
 #include "push_swap.h"
 
-void	elevator_algo(t_list **stack_a, t_list **stack_b)
+static void	reverse_search(t_list **stack_a, t_list **stack_b, t_list *bottom_b)
+{
+	if (!*stack_a || !*stack_b)
+		return ;
+	rrb(stack_b, 0);
+	pa(stack_a, stack_b, 0);
+	if (bottom_b->rank - 1 == (*stack_a)->rank)
+		ra(stack_a, 0);
+}
+
+static void	elevator_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*bottom_a;
-	
-	bottom_a = ft_lstlast(*stack_a);
+	t_list	*bottom_b;
+
 	while (*stack_b)
 	{
+		bottom_a = ft_lstlast(*stack_a);
+		bottom_b = ft_lstlast(*stack_b);
 		if ((*stack_a)->rank - 1 == (*stack_b)->rank)
 			pa(stack_a, stack_b, 0);
 		else if (bottom_a->rank + 1 == (*stack_b)->rank)
 		{
 			pa(stack_a, stack_b, 0);
 			ra(stack_a, 0);
-			bottom_a = ft_lstlast(*stack_a);
 		}
+		else if (bottom_b->rank + 1 == (*stack_a)->rank
+			|| bottom_b->rank - 1 == (*stack_a)->rank)
+			reverse_search(stack_a, stack_b, bottom_b);
 		else
 			rb(stack_b, 0);
 	}
 }
 
-void	find_closest_rank(t_list **stack_a, t_list **stack_b)
+static void	find_closest_rank(t_list **stack_a, t_list **stack_b)
 {
-	int		i;
+	int	size_b;
+	int	i;
 
+	size_b = ft_lstsize(*stack_b);
 	i = 0;
-	while (1)
+	while (i < size_b)
 	{
 		if ((*stack_b)->rank + 1 == (*stack_a)->rank
 			|| (*stack_b)->rank - 1 == (*stack_a)->rank)
 		{
-			rb(stack_b, 0);
 			pa(stack_a, stack_b, 0);
 			sort_2(stack_a);
 			return ;
@@ -65,6 +80,6 @@ int	sort(t_list **stack_a, t_list **stack_b, int size)
 		size--;
 	}
 	find_closest_rank(stack_a, stack_b);
-	elevator_algo(stack_a, stack_b);
+	elevator_sort(stack_a, stack_b);
 	return (1);
 }

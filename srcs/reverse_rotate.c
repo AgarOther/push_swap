@@ -14,14 +14,20 @@
 
 void	rra(t_list **stack_a, int is_rr)
 {
-	t_list	*tmp;
+	t_list	*last;
+	t_list	*before_last;
 
-	tmp = *stack_a;
-	while (tmp && tmp->next && tmp->next->next)
-		tmp = tmp->next;
-	tmp->next->next = *stack_a;
-	*stack_a = tmp->next;
-	tmp->next = NULL;
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
+	last = *stack_a;
+	while (last->next)
+	{
+		before_last = last;
+		last = last->next;
+	}
+	before_last->next = NULL;
+	last->next = *stack_a;
+	*stack_a = last;
 	if (!is_rr)
 		ft_putendl_fd("rra", 1);
 }

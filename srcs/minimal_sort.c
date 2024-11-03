@@ -78,6 +78,7 @@ int	is_fully_sorted(t_list *stack, int size)
 {
 	int		tmp;
 	int		lst_size;
+
 	lst_size = ft_lstsize(stack);
 	if (lst_size == 1 && size == 1)
 		return (1);

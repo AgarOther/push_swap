@@ -15,12 +15,11 @@
 void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
 {
 	t_list	*tmp;
-	
+
+	if (!*stack_b)
+		return ;
 	tmp = *stack_b;
-	if (*stack_b)
-		*stack_b = (*stack_b)->next;
-	else if (!(*stack_b)->next)
-		*stack_b = NULL;
+	*stack_b = (*stack_b)->next;
 	ft_lstadd_front(stack_a, tmp);
 	if (!is_pb)
 		ft_putendl_fd("pa", 1);
@@ -28,6 +27,8 @@ void	pa(t_list **stack_a, t_list **stack_b, int is_pb)
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
+	if (!*stack_a)
+		return ;
 	pa(stack_b, stack_a, 1);
 	ft_putendl_fd("pb", 1);
 }

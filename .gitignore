@@ -5,3 +5,4 @@ visualizer
 objs/
 push_swap
 libft/libft.a
+.vscode/

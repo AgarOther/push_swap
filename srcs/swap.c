@@ -14,29 +14,16 @@
 
 void	sa(t_list **stack_a, int is_ss)
 {
-	t_list	*tmp;
-	t_list	*last;
-	int		size;
+	t_list	*first;
+	t_list	*second;
 
-	size = ft_lstsize(*stack_a);
-	if (size < 2)
+	if (!*stack_a || !(*stack_a)->next)
 		return ;
-	else if (size == 2)
-	{
-		(*stack_a)->next->next = *stack_a;
-		*stack_a = (*stack_a)->next;
-		(*stack_a)->next->next = NULL;
-	}
-	else
-	{
-		tmp = *stack_a;
-		while (tmp && tmp->next && tmp->next->next && tmp->next->next->next)
-			tmp = tmp->next;
-		last = tmp->next->next;
-		last->next = tmp->next;
-		tmp->next = last;
-		tmp->next->next->next = NULL;
-	}
+	first = *stack_a;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*stack_a = second;
 	if (!is_ss)
 		ft_putendl_fd("sa", 1);
 }
