@@ -12,11 +12,10 @@
 
 #include "push_swap.h"
 
-void	sort_5(t_list **stack_a, t_list **stack_b)
+void	sort_2(t_list **stack_a)
 {
-	(void) stack_a;
-	(void) stack_b;
-	// Last stretch before being done, will do that at 42.
+	if ((*stack_a)->value > (*stack_a)->next->value)
+		sa(stack_a, 0);
 }
 
 void	sort_3(t_list **stack_a)
@@ -47,10 +46,42 @@ void	sort_3(t_list **stack_a)
 	}
 }
 
-void	sort_2(t_list **stack_a)
+void	sort_5(t_list **stack_a, t_list **stack_b)
 {
-	if ((*stack_a)->value > (*stack_a)->next->value)
-		sa(stack_a, 0);
+	if (is_sorted((*stack_a)->next))
+	{
+		ra(stack_a, 0);
+		return ;
+	}
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	sort_3(stack_a);
+	while (*stack_b)
+	{
+		if ((*stack_b)->rank + 1 == (*stack_a)->rank)
+			pa(stack_a, stack_b, 0);
+		else if ((*stack_b)->rank - 1 == (*stack_a)->rank)
+		{
+			pa(stack_a, stack_b, 0);
+			sa(stack_a, 0);
+		}
+		else if ((*stack_b)->rank - 1 == ft_lstlast(*stack_a)->rank)
+		{
+			pa(stack_a, stack_b, 0);
+			ra(stack_a, 0);
+		}
+		else if ((*stack_b)->rank + 1 == ft_lstlast(*stack_a)->rank)
+		{
+			pa(stack_a, stack_b, 0);
+			rra(stack_a, 0);
+			sa(stack_a, 0);
+			ra(stack_a, 0);
+			ra(stack_a, 0);
+		}
+		rb(stack_b, 0);
+	}
+	while ((*stack_a)->rank != 0)
+		ra(stack_a, 0);
 }
 
 int	is_sorted(t_list *stack)
@@ -59,26 +90,6 @@ int	is_sorted(t_list *stack)
 
 	if (ft_lstsize(stack) == 1)
 		return (1);
-	while (stack->next)
-	{
-		tmp = stack->value;
-		stack = stack->next;
-		if (tmp > stack->value)
-			return (0);
-	}
-	return (1);
-}
-
-int	is_fully_sorted(t_list *stack, int size)
-{
-	int		tmp;
-	int		lst_size;
-
-	lst_size = ft_lstsize(stack);
-	if (lst_size == 1 && size == 1)
-		return (1);
-	else if (lst_size != size)
-		return (0);
 	while (stack->next)
 	{
 		tmp = stack->value;

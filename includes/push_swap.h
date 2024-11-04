@@ -32,7 +32,6 @@ void	sort_3(t_list **stack_a);
 void	sort_5(t_list **stack_a, t_list **stack_b);
 int		sort(t_list **stack_a, t_list **stack_b, int size);
 int		elevator_sort(t_list **stack_a, t_list **stack_b, int size);
-int		is_fully_sorted(t_list *stack, int size);
 
 // Operations
 void	sa(t_list **stack_a, int is_ss);

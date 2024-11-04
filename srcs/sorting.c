@@ -59,6 +59,8 @@ static void	radix(t_list **stack_a, t_list **stack_b, int size)
 				ra(stack_a, 0);
 			else
 				pb(stack_a, stack_b);
+			if (is_sorted(*stack_a))
+				break ;
 		}
 		while (*stack_b)
 			pa(stack_a, stack_b, 0);
