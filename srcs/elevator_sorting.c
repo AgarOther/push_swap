@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   old_sorting.c                                      :+:      :+:    :+:   */
+/*   elevator_sorting.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 22:27:24 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/03 22:27:24 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/04 14:25:56 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	reverse_search(t_list **stack_a, t_list **stack_b, t_list *bottom_b)
 		ra(stack_a, 0);
 }
 
-static void	my_sort(t_list **stack_a, t_list **stack_b)
+void	elevator_execute(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*bottom_a;
 	t_list	*bottom_b;
@@ -88,6 +88,6 @@ int	elevator_sort(t_list **stack_a, t_list **stack_b, int size)
 		size--;
 	}
 	find_closest_rank(stack_a, stack_b);
-	my_sort(stack_a, stack_b);
+	elevator_execute(stack_a, stack_b);
 	return (1);
 }

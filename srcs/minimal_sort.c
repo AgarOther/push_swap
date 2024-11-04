@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:54:56 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 19:12:58 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:34:37 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ void	sort_3(t_list **stack_a)
 	}
 }
 
+static void	push_and_sort(t_list **stack_a, t_list **stack_b)
+{
+	pa(stack_a, stack_b, 0);
+	if ((*stack_a)->rank == 4)
+		ra(stack_a, 0);
+}
+
 void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	if (is_sorted((*stack_a)->next))
@@ -53,35 +60,16 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 		ra(stack_a, 0);
 		return ;
 	}
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	sort_3(stack_a);
-	while (*stack_b)
+	while (ft_lstsize(*stack_a) > 3)
 	{
-		if ((*stack_b)->rank + 1 == (*stack_a)->rank)
-			pa(stack_a, stack_b, 0);
-		else if ((*stack_b)->rank - 1 == (*stack_a)->rank)
-		{
-			pa(stack_a, stack_b, 0);
-			sa(stack_a, 0);
-		}
-		else if ((*stack_b)->rank - 1 == ft_lstlast(*stack_a)->rank)
-		{
-			pa(stack_a, stack_b, 0);
+		if ((*stack_a)->rank == 0 || (*stack_a)->rank == 4)
+			pb(stack_a, stack_b);
+		else
 			ra(stack_a, 0);
-		}
-		else if ((*stack_b)->rank + 1 == ft_lstlast(*stack_a)->rank)
-		{
-			pa(stack_a, stack_b, 0);
-			rra(stack_a, 0);
-			sa(stack_a, 0);
-			ra(stack_a, 0);
-			ra(stack_a, 0);
-		}
-		rb(stack_b, 0);
 	}
-	while ((*stack_a)->rank != 0)
-		ra(stack_a, 0);
+	sort_3(stack_a);
+	push_and_sort(stack_a, stack_b);
+	push_and_sort(stack_a, stack_b);
 }
 
 int	is_sorted(t_list *stack)

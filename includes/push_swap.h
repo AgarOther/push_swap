@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 18:19:45 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:25:59 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	sort_3(t_list **stack_a);
 void	sort_5(t_list **stack_a, t_list **stack_b);
 int		sort(t_list **stack_a, t_list **stack_b, int size);
 int		elevator_sort(t_list **stack_a, t_list **stack_b, int size);
+void	elevator_execute(t_list **stack_a, t_list **stack_b);
 
 // Operations
 void	sa(t_list **stack_a, int is_ss);
