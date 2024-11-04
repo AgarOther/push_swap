@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 11:49:27 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:39:38 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,18 @@
 
 int	has_overflow(char *str)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	long	val;
 
 	i = 0;
 	j = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]))
-			j++;
-		else
-			j = 0;
-		if (j > 10)
+		val = ft_atol(&str[i]);
+		if (val > INT_MAX || val < INT_MIN)
 			return (1);
-		else if (j == 10 && ft_atol(&str[i - j + 1])
-			> (size_t)INT_MAX + (str[i - j] == '-'))
-			return (1);
-		i++;
+		i += ft_intlen(val) + (val < 0);
 	}
 	return (0);
 }

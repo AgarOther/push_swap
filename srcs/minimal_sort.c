@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:54:56 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/04 14:34:37 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:36:42 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a, 0);
 	}
-	sort_3(stack_a);
+	if (!is_sorted(*stack_a))
+		sort_3(stack_a);
 	push_and_sort(stack_a, stack_b);
 	push_and_sort(stack_a, stack_b);
 }

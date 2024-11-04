@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 22:27:24 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/04 14:25:56 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:22:46 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	reverse_search(t_list **stack_a, t_list **stack_b, t_list *bottom_b)
 		ra(stack_a, 0);
 }
 
-void	elevator_execute(t_list **stack_a, t_list **stack_b)
+static void	elevator_execute(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*bottom_a;
 	t_list	*bottom_b;
