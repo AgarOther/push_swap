@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:54:56 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/04 16:36:42 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:55:58 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,6 @@ static void	push_and_sort(t_list **stack_a, t_list **stack_b)
 
 void	sort_5(t_list **stack_a, t_list **stack_b)
 {
-	if (is_sorted((*stack_a)->next))
-	{
-		ra(stack_a, 0);
-		return ;
-	}
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		if ((*stack_a)->rank == 0 || (*stack_a)->rank == 4)

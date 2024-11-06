@@ -6,3 +6,7 @@ objs/
 push_swap
 libft/libft.a
 .vscode/
+*.sh
+*.txt
+0
+Push-Swap-Tester/
