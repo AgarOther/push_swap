@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/06 16:49:31 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:43:59 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int	can_parse(int argc, char **argv)
 {
 	if (argc < 2)
 		return (0);
+	else if (argc == 2 && argv[1][0] == 0)
+		return (0);
 	if (!is_valid(argc, argv))
 		return (print_error());
-	else if (has_duplicates(argc, argv, 1, 0))
+	else if (has_duplicates(argc, argv, 0, 0))
 		return (print_error());
 	return (1);
 }
@@ -34,7 +36,6 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		size;
-	int		sorted;
 
 	if (!can_parse(argc, argv))
 		return (0);
@@ -43,11 +44,15 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (print_error());
 	size = ft_lstsize(stack_a);
-	sorted = is_sorted(stack_a);
+	if (size <= 1)
+	{
+		ft_lstclear(&stack_a);
+		return (0);
+	}
 	if (!is_sorted(stack_a))
 	{
 		if (!sort(&stack_a, &stack_b, size))
-			return (print_error());
+			print_error();
 	}
 	ft_lstclear(&stack_a);
 	if (stack_b)

@@ -6,17 +6,17 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:18:55 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/02 11:22:40 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:06:17 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	size_t	i;
-	size_t	res;
-	size_t	neg;
+	long	i;
+	long	res;
+	long	neg;
 
 	i = 0;
 	res = 0;

@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:35:35 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/09 16:45:47 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:07:25 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_intlen(int n)
 	int	len;
 
 	len = 1;
+	if (n == -2147483648)
+		return (10);
 	if (n < 0)
 		n *= -1;
 	while (n > 9)

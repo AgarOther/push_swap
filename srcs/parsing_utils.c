@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/04 16:39:38 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:47:01 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	has_overflow(char *str)
 {
 	int		i;
-	int		j;
 	long	val;
 
 	i = 0;
-	j = 0;
 	while (str[i])
 	{
 		val = ft_atol(&str[i]);
@@ -56,7 +54,7 @@ static void	get_element(t_list **stack, char *str, int i, int j)
 			num = ft_atoi(&str[i], 0);
 		else
 		{
-			while (str[i] && str[i] == ' ')
+			while (str[i] && (str[i] == ' ' || str[i] == '+'))
 				i++;
 			j = i;
 			while (str[j] && (ft_isdigit(str[j]) || str[j] == '-'))
@@ -108,12 +106,14 @@ int	is_valid(int argc, char **argv)
 			return (0);
 		while (argv[i][j])
 		{
-			if (argv[i][j] == '-' && argv[i][j + 1] == '-')
+			if ((argv[i][j] == '-' || argv[i][j] == '+')
+				&& !ft_isdigit(argv[i][j]))
 				return (0);
-			else if (argv[i][j] == '-' && argv[i][j + 1] == '0')
+			else if ((argv[i][j] == '-' || argv[i][j] == '+')
+				&& argv[i][j + 1] == '0')
 				return (0);
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
-				&& argv[i][j] != '-')
+				&& argv[i][j] != '-' && argv[i][j] != '+')
 				return (0);
 			j++;
 		}
