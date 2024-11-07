@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/06 21:43:59 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/07 23:50:13 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,22 @@ int	print_error(void)
 {
 	ft_putendl_fd("Error", 1);
 	return (0);
+}
+
+int	is_valid_int(char *str)
+{
+	int		i;
+	long	val;
+
+	i = 0;
+	while (str[i] && (ft_isoperand(str[i]) || str[i] == ' ' || str[i] == '0'))
+		i++;
+	if (ft_strlen(&str[i]) > 11)
+		return (0);
+	val = ft_atol(&str[i]);
+	if (val > INT_MAX || val < INT_MIN)
+		return (0);
+	return (1);
 }
 
 int	can_parse(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:20 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/06 21:43:49 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/07 23:20:46 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,16 @@ int	has_duplicates(int argc, char **argv, int i, int j)
 	while (++i < argc)
 	{
 		j = 0;
-		while (argv[i][j])
+		while (argv[i][j] && has_digit(&argv[i][j]))
 		{
-			while (argv[i][j] == ' ')
+			while (argv[i][j] && argv[i][j] == ' ')
 				j++;
 			tab[k] = ft_atoi(&argv[i][j], 0);
 			if (duplicate_check(tab[k], tab, k))
 				return (1);
 			k++;
-			while (argv[i][j] && (ft_isdigit(argv[i][j]) || argv[i][j] == '-'
-				|| argv[i][j] == '+'))
+			while (argv[i][j] && (ft_isdigit(argv[i][j])
+				|| ft_isoperand(argv[i][j])))
 				j++;
 		}
 	}
