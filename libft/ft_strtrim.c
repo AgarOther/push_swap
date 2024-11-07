@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:02:18 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/11 13:59:30 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:44:52 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!str)
 		return (NULL);
 	str = ft_strcpy(str, s1, start, end);
+	free((char *)s1);
 	return (str);
 }

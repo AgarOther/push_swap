@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/06 21:47:01 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:13:43 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,22 @@
 int	has_overflow(char *str)
 {
 	int		i;
+	int		j;
+	int		len;
 	long	val;
 
 	i = 0;
 	while (str[i])
 	{
+		j = i;
+		len = 0;
+		while (str[j] && ft_isdigit(str[j]))
+		{
+			j++;
+			len++;
+		}
+		if (len > 12)
+			return (1);
 		val = ft_atol(&str[i]);
 		if (val > INT_MAX || val < INT_MIN)
 			return (1);
@@ -42,7 +53,7 @@ int	has_space(char *str)
 	return (0);
 }
 
-static void	get_element(t_list **stack, char *str, int i, int j)
+static void	put_element(t_list **stack, char *str, int i, int j)
 {
 	int		num;
 	t_list	*new;
@@ -50,46 +61,48 @@ static void	get_element(t_list **stack, char *str, int i, int j)
 
 	while (str[i])
 	{
-		if (!has_space(&str[i]))
-			num = ft_atoi(&str[i], 0);
-		else
-		{
-			while (str[i] && (str[i] == ' ' || str[i] == '+'))
-				i++;
-			j = i;
-			while (str[j] && (ft_isdigit(str[j]) || str[j] == '-'))
-				j++;
-			strnum = ft_substr(&str[i], 0, j);
-			num = ft_atoi(strnum, 1);
-		}
+		while (str[i] && (str[i] == ' '))
+			i++;
+		j = i;
+		while (str[j] && (ft_isdigit(str[j]) || ft_isoperand(str[j])))
+			j++;
+		strnum = ft_substr(&str[i], 0, j);
+		num = ft_atoi(strnum, 1);
 		new = ft_lstnew(num);
 		if (!stack)
 			stack = &new;
 		else
 			ft_lstadd_back(stack, new);
-		i += ft_intlen(num) + (num < 0);
+		i = j;
 	}
 }
 
 t_list	*get_stack_a(int argc, char **argv)
 {
+	char	*input;
+	char	**splitted;
 	t_list	*stack;
 	int		i;
 
-	stack = NULL;
-	i = 1;
-	while (i <= argc)
+	input = ft_tabjoin(argc, argv, 1, ' ');
+	if (!input)
+		return (NULL);
+	if (has_overflow(input))
 	{
-		argv[i] = ft_strtrim(argv[i], " ");
-		if (has_overflow(argv[i]))
-		{
-			free(argv[i]);
-			return (NULL);
-		}
-		get_element(&stack, argv[i], 0, 0);
-		free(argv[i]);
+		free(input);
+		return (NULL);
+	}
+	stack = NULL;
+	i = 0;
+	splitted = ft_split(input, ' ');
+	while (splitted[i])
+	{
+		put_element(&stack, splitted[i], 0, 0);
+		free(splitted[i]);
 		i++;
 	}
+	free(splitted);
+	free(input);
 	return (stack);
 }
 
@@ -106,11 +119,9 @@ int	is_valid(int argc, char **argv)
 			return (0);
 		while (argv[i][j])
 		{
-			if ((argv[i][j] == '-' || argv[i][j] == '+')
-				&& !ft_isdigit(argv[i][j]))
-				return (0);
-			else if ((argv[i][j] == '-' || argv[i][j] == '+')
-				&& argv[i][j + 1] == '0')
+			if ((ft_isoperand(argv[i][j]) && !ft_isdigit(argv[i][j + 1])) ||
+				(j > 0 && ft_isoperand(argv[i][j])
+					&& ft_isdigit(argv[i][j - 1])))
 				return (0);
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
 				&& argv[i][j] != '-' && argv[i][j] != '+')
