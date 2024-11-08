@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/08 12:19:51 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:42:28 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	has_overflow(char *str)
 {
-	static int	i = 0;
+	int			i;
 	int			j;
 	int			len;
 	long		val;
 
+	i = 0;
 	while (str[i])
 	{
 		j = i;
@@ -30,7 +31,10 @@ int	has_overflow(char *str)
 		}
 		val = ft_atol(&str[i]);
 		if (val > INT_MAX || val < INT_MIN)
+		{
+			free(str);
 			return (1);
+		}
 		i += len + 1;
 	}
 	return (0);
@@ -87,13 +91,11 @@ t_list	*get_stack_a(int argc, char **argv)
 	i = 2;
 	while (i <= argc)
 	{
-		str = ft_strjoin(str, argv[i], i != argc);
+		str = ft_strjoin(str, argv[i]);
 		if (!str || has_overflow(str))
 		{
 			if (stack)
 				ft_lstclear(&stack);
-			if (str)
-				free(str);
 			return (NULL);
 		}
 		i++;
