@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/08 12:42:28 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:27:07 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,7 @@ t_list	*get_stack_a(int argc, char **argv)
 	{
 		str = ft_strjoin(str, argv[i]);
 		if (!str || has_overflow(str))
-		{
-			if (stack)
-				ft_lstclear(&stack);
 			return (NULL);
-		}
 		i++;
 	}
 	str = ft_strtrim(str, " ");

@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/07 23:42:57 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:26:22 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 t_list	*get_stack_a(int argc, char **argv);
 int		has_duplicates(int argc, char **argv, int i, int j);
 int		has_overflow(char *str);
-int		is_valid_int(char *str);
 int		print_error(void);
 int		has_space(char *str);
 int		has_digit(char *str);
