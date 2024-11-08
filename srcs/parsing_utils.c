@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:23:14 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/07 23:47:29 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:19:51 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 int	has_overflow(char *str)
 {
-	int		i;
-	int		j;
-	int		len;
-	long	val;
+	static int	i = 0;
+	int			j;
+	int			len;
+	long		val;
 
-	i = 0;
 	while (str[i])
 	{
 		j = i;
 		len = 0;
-		while (str[j] && ft_isdigit(str[j]))
+		while (str[j] && (ft_isoperand(str[j]) || ft_isdigit(str[j])))
 		{
 			j++;
 			len++;
 		}
-		if (len > 12 && !is_valid_int(&str[i]))
-			return (1);
 		val = ft_atol(&str[i]);
 		if (val > INT_MAX || val < INT_MIN)
 			return (1);
-		i += ft_intlen(val) + (val < 0);
+		i += len + 1;
 	}
 	return (0);
 }
@@ -55,9 +52,9 @@ int	has_space(char *str)
 
 static void	put_element(t_list **stack, char *str)
 {
-	int		i;
-	int		num;
-	t_list	*new;
+	int			i;
+	int			num;
+	t_list		*new;
 
 	i = 0;
 	while (str[i])
@@ -84,7 +81,7 @@ t_list	*get_stack_a(int argc, char **argv)
 	int		i;
 
 	str = ft_strdup(argv[1]);
-	if (!str)
+	if (!str || has_overflow(str))
 		return (NULL);
 	stack = NULL;
 	i = 2;
