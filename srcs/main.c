@@ -14,7 +14,7 @@
 
 int	print_error(void)
 {
-	ft_putendl_fd("Error", 1);
+	ft_putendl_fd("Error", 2);
 	return (0);
 }
 
