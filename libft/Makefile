@@ -14,7 +14,8 @@ SRCS = ft_atoi.c ft_atol.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_split.c ft_strtrim.c ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
 	ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c ft_isoperand.c ft_tabjoin.c
+	ft_lstmap_bonus.c ft_isoperand.c ft_tabjoin.c \
+	get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -I get_next_line/
 
 $(NAME) : $(OBJS)
 	ar -rc $(NAME) $(OBJS)

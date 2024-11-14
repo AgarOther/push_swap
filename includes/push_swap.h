@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/08 20:26:22 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/11/14 23:46:09 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		has_digit(char *str);
 int		is_valid(int argc, char **argv);
 int		set_ranks(t_list **stack_a, int size);
 int		is_sorted(t_list *stack);
+int		can_parse(int argc, char **argv);
 
 // Resolution
 void	sort_2(t_list **stack_a);

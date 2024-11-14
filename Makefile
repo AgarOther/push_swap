@@ -26,23 +26,22 @@ SRCS		= 	srcs/main.c \
 				srcs/sorting.c \
 				srcs/elevator_sorting.c
 
+SRCS_BONUS	=	srcs/parsing.c \
+				srcs/parsing_utils.c \
+				srcs/parsing_rank.c \
+				bonus/main.c \
+				bonus/instructions.c \
+				bonus/ft_parsenew.c
+
 OBJ_FOLDER	= objs
 
 INCLUDES	= includes
 
 # Objects
 
-OBJS		= 	$(OBJ_FOLDER)/main.o \
-				$(OBJ_FOLDER)/parsing.o \
-				$(OBJ_FOLDER)/parsing_utils.o \
-				$(OBJ_FOLDER)/parsing_rank.o \
-				$(OBJ_FOLDER)/minimal_sort.o \
-				$(OBJ_FOLDER)/push.o \
-				$(OBJ_FOLDER)/swap.o \
-				$(OBJ_FOLDER)/rotate.o \
-				$(OBJ_FOLDER)/reverse_rotate.o \
-				$(OBJ_FOLDER)/sorting.o \
-				$(OBJ_FOLDER)/elevator_sorting.o
+OBJS		= 	$(patsubst srcs/%.c, $(OBJ_FOLDER)/%.o, $(SRCS))
+
+BONUS_OBJS	=	$(patsubst srcs/%.c, $(OBJ_FOLDER)/%.o, $(SRCS_BONUS))
 
 # Custom Makefile Flags
 
@@ -85,11 +84,14 @@ $(NAME): libft $(OBJS)
 	$(EXE_DONE)
 
 $(OBJ_FOLDER)/%.o: srcs/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES) -I bonus/push_swap_bonus.c
 
 libft : 
 	$(LIBFT)
 	$(LIB_DONE)
+
+bonus : libft $(OBJS_BONUS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 
 clean :
 	@rm -f $(OBJS)
