@@ -6,12 +6,17 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/02 14:17:06 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 22:11:26 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
+# define SUCCESS "\033[32m>>>>>>>>>> SUCCESS <<<<<<<<<<\033[0m"
+# define FAILURE "\033[31m>>>>>>>>>> FAILURE <<<<<<<<<<\033[0m"
+# define ERROR_1 "\033[31mERROR: \033[39;9m"
+# define ERROR_2 "You must wait at least \033[0;93;9m99h99m99s"
+# define ERROR_3 "\033[0m Invalid input."
 # include "../libft/libft.h"
 # include <limits.h>
 

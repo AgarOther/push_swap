@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:57:18 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/02 14:18:19 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 22:04:47 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ char	**get_moves(int i)
 	t_line	*lines;
 	t_line	*head;
 	char	**moves;
-	int		len;
 
 	lines = get_lines_as_list();
 	if (!lines)
@@ -103,7 +102,6 @@ char	**get_moves(int i)
 	}
 	while (lines)
 	{
-		len = ft_strlen(lines->line);
 		moves[i] = lines->line;
 		lines = lines->next;
 		i++;
