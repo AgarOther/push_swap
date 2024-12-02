@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parsenew.c                                      :+:      :+:    :+:   */
+/*   ft_tabprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 23:56:40 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/14 23:57:01 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/11/06 10:42:14 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/11/06 11:27:41 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "libft.h"
 
-t_parse	*ft_parsenew(char *str)
+void	ft_tabprint(char **tab, int endl)
 {
-	t_parse	*node;
+	int	i;
 
-	node = malloc(sizeof(t_parse));
-	if (!node)
-		return (NULL);
-	node->str = str;
-	node->next = NULL;
-	return (node);
+	i = 0;
+	while (tab[i])
+	{
+		if (endl)
+			ft_putendl_fd(tab[i], 1);
+		else
+			ft_putstr_fd(tab[i], 1);
+		i++;
+	}
 }

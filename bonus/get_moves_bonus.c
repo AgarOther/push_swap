@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
+/*   get_moves_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 23:39:09 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/14 23:57:08 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/12/02 12:23:54 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/12/02 14:13:04 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_BONUS_H
-# define PUSH_SWAP_BONUS_H
-#include <unistd.h>
-#include "../includes/push_swap.h"
-#include "../libft.h"
-#include "../get_next_line/get_next_line.h"
+#include "checker_bonus.h"
 
-typedef struct s_parse
+int	check_stack(t_list **stack_a, t_list **stack_b)
 {
-	char			*str;
-	struct s_parse	*next;
-}				t_parse;
+	char	**moves;
+	int		i;
 
-t_parse	*ft_parsenew(char *str);
-
-#endif
+	moves = get_moves(0);
+	i = 0;
+	if (!check_moves(moves))
+	{
+		ft_tabfree(moves, ft_tablen((const char **)moves));
+		return (0);
+	}
+	if (!moves || !*moves)
+		return (1);
+	while (moves[i])
+	{
+		do_move(stack_a, stack_b, moves[i]);
+		i++;
+	}
+	ft_tabfree(moves, ft_tablen((const char **)moves));
+	return (1);
+}

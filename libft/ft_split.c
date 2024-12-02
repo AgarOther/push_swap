@@ -50,7 +50,7 @@ static int	count_char(char *str, char c)
 	return (chars);
 }
 
-static void	free_all(char **tab, int index)
+static void	free_strs(char **tab, int index)
 {
 	int	i;
 
@@ -77,7 +77,7 @@ static char	**fill_tab(char **tab, char *str, char c, int i)
 			tab[j] = malloc(count_char(&str[i], c) + 1);
 			if (!tab[j])
 			{
-				free_all(tab, j);
+				free_strs(tab, j);
 				return (NULL);
 			}
 			ft_strlcpy(tab[j], &str[i], count_char(&str[i], c) + 1);

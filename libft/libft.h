@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:21:22 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/11/08 12:43:02 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:23:39 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "./get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
@@ -60,6 +61,9 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_tabjoin(int size, char **tab, int offset, char sep);
+size_t	ft_tablen(const char **s);
+void	ft_tabprint(char **tab, int endl);
+void	ft_tabfree(char **tab, int size);
 t_list	*ft_lstnew(int value);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
