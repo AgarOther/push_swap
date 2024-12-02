@@ -18,7 +18,8 @@ SRCS				= 	srcs/main.c \
 						srcs/swap.c \
 						srcs/rotate.c \
 						srcs/reverse_rotate.c \
-						srcs/sorting.c \
+						srcs/sorting_new.c \
+						srcs/sorting_utils.c \
 						srcs/elevator_sorting.c
 SRCS_BONUS			=	srcs/main_bonus.c \
 						srcs/parsing_bonus.c \
@@ -50,7 +51,8 @@ OBJS				=	$(OBJ_FOLDER)/main.o \
 						$(OBJ_FOLDER)/swap.o \
 						$(OBJ_FOLDER)/rotate.o \
 						$(OBJ_FOLDER)/reverse_rotate.o \
-						$(OBJ_FOLDER)/sorting.o \
+						$(OBJ_FOLDER)/sorting_new.o \
+						$(OBJ_FOLDER)/sorting_utils.o \
 						$(OBJ_FOLDER)/elevator_sorting.o
 OBJS_BONUS			=	$(OBJ_FOLDER_BONUS)/main_bonus.o \
 						$(OBJ_FOLDER_BONUS)/parsing_bonus.o \
