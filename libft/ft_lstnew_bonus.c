@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:18:10 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/30 11:02:04 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:44:37 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	node->value = content;
 	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }

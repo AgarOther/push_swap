@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:48:47 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/10/11 13:05:39 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:49:56 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*prev;
+
+	prev = ft_lstlast(*lst);
 	if (*lst)
-		ft_lstlast(*lst)->next = new;
+	{
+		prev->next = new;
+		new->prev = prev;
+	}
 	else
 		*lst = new;
 }

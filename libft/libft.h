@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:21:22 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/02 16:20:49 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:42:02 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_list
 	int				value;
 	int				rank;
 	int				reach;
+	struct s_list	*prev;
 	struct s_list	*next;
 }					t_list;
 

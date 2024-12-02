@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:53:27 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/02 16:27:04 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:52:34 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	can_parse(int argc, char **argv)
 		return (print_error());
 	return (1);
 }
-
+#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
