@@ -17,21 +17,20 @@ void	set_reach(t_list **stack)
 	int		i;
 	int		j;
 	int		size;
+	int		med;
 	t_list	*tmp;
 
-	i = 0;
+	i = 1;
 	j = 0;
 	size = ft_lstsize(*stack);
+	med = ((size + 1) / 2) + (size % 2 == 0);
 	tmp = *stack;
 	while (tmp)
 	{
 		tmp->reach = j;
-		if (i - 1 < (size - 1) / 2)
-		{
-			if (size % 2 == 0 || (size % 2 && i < (size - 1) / 2))
-				j++;
-		}
-		else
+		if (i < med)
+			j++;
+		else if (i > med || (size % 2 == 0 && i == med))
 			j--;
 		tmp = tmp->next;
 		i++;
