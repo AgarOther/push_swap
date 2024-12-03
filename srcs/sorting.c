@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:25:30 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/03 18:15:02 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/03 22:35:26 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,39 @@
 static void	smart_rotate(t_list **stack_a, t_list **stack_b,
 		void (*rotate)(t_list **stack_b, int is_rr), int size)
 {
-	while ((*stack_b)->rank != size - 2)
-		rotate(stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	while ((*stack_b)->rank != size - 1)
-		rotate(stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	sa(stack_a, 0);
+	if (size > 1 && is_optimizable(stack_b, size))
+	{
+		while ((*stack_b)->rank != size - 1)
+			rotate(stack_b, 0);
+		pa(stack_a, stack_b, 0);
+		while ((*stack_b)->rank != size)
+			rotate(stack_b, 0);
+		pa(stack_a, stack_b, 0);
+		sa(stack_a, 0);
+	}
+	else
+	{
+		while ((*stack_b)->rank != size)
+			rotate(stack_b, 0);
+		pa(stack_a, stack_b, 0);
+	}
 }
 
-static void	ft_complete_sort(t_list **stack_a, t_list **stack_b)
+void	ft_complete_sort(t_list **stack_a, t_list **stack_b)
 {
-	int	pos1;
-	int	pos2;
-	int	median;
+	int	pos;
 	int	size;
+	int	max;
 
-	while (*stack_b)
+	while (*stack_b != NULL)
 	{
 		size = ft_lstsize(*stack_b);
-		median = size / 2;
-		pos1 = get_highest_pos(stack_b, size);
-		pos2 = get_highest_pos(stack_b, size - 1);
-		if (pos2 < pos1 && pos1 <= median && pos2 <= median)
-			smart_rotate(stack_a, stack_b, rb, size);
-		else if (pos2 > pos1 && pos1 > median && pos2 > median)
-			smart_rotate(stack_a, stack_b, rrb, size);
+		max = size - 1;
+		pos = get_highest_pos(*stack_b, max);
+		if (pos > size / 2)
+			smart_rotate(stack_a, stack_b, rrb, max);
 		else
-		{
-			while ((*stack_b)->rank != size - 1)
-				rb(stack_b, 0);
-			pa(stack_a, stack_b, 0);
-		}
+			smart_rotate(stack_a, stack_b, rb, max);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/03 18:08:10 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/03 22:00:52 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <limits.h>
 
 // Butterfly
-int		get_highest_pos(t_list **stack_b, int size);
+int		get_highest_pos(t_list *stack_b, int size);
+int		is_optimizable(t_list **stack_b, int max);
+int		get_current_pos(t_list *stack_b, int n);
 
 // Parsing
 t_list	*get_stack_a(int argc, char **argv);
