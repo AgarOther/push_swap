@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:25:30 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/03 22:35:26 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/03 23:08:57 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	smart_rotate(t_list **stack_a, t_list **stack_b,
 	}
 }
 
-void	ft_complete_sort(t_list **stack_a, t_list **stack_b)
+static void	ft_complete_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	pos;
 	int	size;
