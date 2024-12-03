@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:53:33 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/02 16:26:02 by scraeyme         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:08:10 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # include "../libft/libft.h"
 # include <limits.h>
 
-// New
-void	set_reach(t_list **stack);
+// Butterfly
+int		get_highest_pos(t_list **stack_b, int size);
 
 // Parsing
 t_list	*get_stack_a(int argc, char **argv);
